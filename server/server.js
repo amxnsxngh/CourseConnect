@@ -17,7 +17,7 @@ app.get("/student", (req, res) => {
 app.use('/api', getRoutes);
 app.use('/api', postRoutes);
 
-const PORT = 8080;
+const PORT = 5000;
 
 app.listen(PORT, () => {
     console.log(`Server running on port http://localhost:${PORT}`);
