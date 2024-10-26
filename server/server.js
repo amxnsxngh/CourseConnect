@@ -1,8 +1,25 @@
+// server.js
 const express = require('express');
-const app = express()
+const cors = require('cors'); // To allow cross-origin requests
+const bodyParser = require('body-parser');
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.json()); // Parse JSON bodies
 
 app.get("/api", (req, res) => {
-    res.json({"users": ["userOne", "userTwo", "userThree"] })
-})
+    res.json({ "users": ["userOne", "userTwo", "userThree"] });
+});
 
-app.listen(5000, () => {console.log("Server started on port 5000")})
+// Endpoint to handle student form data
+app.post("/api/student", (req, res) => {
+    const { studentNumber, name, surname, qualification, year, availability } = req.body;
+    console.log("Received Student Data:", req.body);
+
+    // Process or save the data (e.g., store in DB)
+    res.status(200).json({ message: "Student data received successfully!" });
+});
+
+app.listen(5000, () => {
+    console.log("Server started on port 5000");
+});
