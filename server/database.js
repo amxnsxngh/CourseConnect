@@ -3,7 +3,8 @@ import mysql from 'mysql2'
 // TO use the environment variables
 // Create own .env 
 import dotenv from 'dotenv'
-dotenv.config
+dotenv.config()
+
 
 
 const pool = mysql.createPool(
@@ -17,12 +18,11 @@ const pool = mysql.createPool(
 ).promise()
 
 
-
 // Test database connection. Use npm run-script runDB
 async function pingDatabase() {
     try {
         // Execute a simple query to check database connection
-        await pool.query('SELECT * Users');
+        await pool.query('SELECT * From Users');
         console.log('Database connection successful!');
     } catch (error) {
         console.error('Error connecting to the database:', error);
