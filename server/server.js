@@ -8,12 +8,17 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Use GET and POST routes
-// app.use('/api', getRoutes);
-// app.use('/api', postRoutes);
 
-const PORT = process.env.MYSQL_PORT || 5000;
+app.get("/student", (req, res) => {
+    res.send("This is working 🥳")
+})
+
+// Use GET and POST routes
+app.use('/api', getRoutes);
+app.use('/api', postRoutes);
+
+const PORT = 8080;
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port http://localhost:${PORT}`);
 });
