@@ -1,6 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap");
+@import url('https://fonts.cdnfonts.com/css/general-sans');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --font-sora: "Sora", sans-serif;
+    --font-code: "Source Code Pro", monospace;
+    --font-grotesk: "Space Grotesk", sans-serif;
+    --font-general-sans: "General Sans", sans-serif;
+    color-scheme: dark;
+}
 
+* {
+    scroll-behavior: smooth;
+}
 
+@layer base {
+    body {
+        @apply font-sans bg-n-8 text-n-1 text-base;
+    }
+}
+
+@layer utilities {
+    .c-space {
+        @apply sm:px-10 px-5;
+    }
+    .contact-container {
+        @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12;
+    }
+
+    .field-label {
+        @apply text-lg text-white-600;
+    }
+
+    .field-input {
+        @apply w-full bg-black-300 px-5 py-2 min-h-14 rounded-lg placeholder:text-white-500 text-lg text-white-800 shadow-black-200 shadow-2xl focus:outline-none;
+    }
+
+    .field-btn {
+        @apply bg-black-500 px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+    }
+
+    .field-btn_arrow {
+        @apply w-2.5 h-2.5 object-contain invert brightness-0;
+    }
+    /* about section */
+    .grid-container {
+        @apply w-full h-full border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
+    }
+
+    .grid-headtext {
+        @apply text-xl font-semibold mb-2 text-white font-sans;
+    }
+
+    .grid-subtext {
+        @apply text-[#afb0b6] text-base font-sans;
+    }
+
+    .copy-container {
+        @apply cursor-pointer flex justify-center items-center gap-2;
+    }
+    /* button component */
+    .btn {
+        @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300  transition-all active:scale-95 text-white mx-auto;
+    }
+
+    .btn-ping {
+        @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
+    }
+
+    .btn-ping_dot {
+        @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+    }
+
+}
